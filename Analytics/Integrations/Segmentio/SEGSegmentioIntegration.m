@@ -49,6 +49,7 @@ static NSString *GetDeviceModel() {
 }
 
 static NSString *GetIdForAdvertiser() {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
   if (NSClassFromString(@"ASIdentifierManager")) {
     NSString* idForAdvertiser = nil;
     Class ASIdentifierManagerClass = NSClassFromString(@"ASIdentifierManager");
@@ -64,51 +65,56 @@ static NSString *GetIdForAdvertiser() {
   else {
     return nil;
   }
+#else
+  return nil;
+#endif
 }
 
 static NSMutableDictionary *BuildStaticContext() {
   NSMutableDictionary *context = [[NSMutableDictionary alloc] init];
 
-  context[@"library"] = @{
-    @"name": @"analytics-ios",
-    @"version": SEGStringize(ANALYTICS_VERSION)
-  };
+  [context setObject:@{
+                       @"name": @"analytics-ios",
+                       @"version": SEGStringize(ANALYTICS_VERSION)
+                       } forKey:@"library"];
 
   NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
   if (infoDictionary.count) {
-    context[@"app"] = @{
-      @"name": infoDictionary[@"CFBundleDisplayName"],
-      @"version": infoDictionary[@"CFBundleShortVersionString"],
-      @"build": infoDictionary[@"CFBundleVersion"]
-    };
+    [context setObject:@{
+                         @"name": [infoDictionary objectForKey:@"CFBundleDisplayName"],
+                         @"version": [infoDictionary objectForKey:@"CFBundleShortVersionString"],
+                         @"build": [infoDictionary objectForKey:@"CFBundleVersion"]
+                         } forKey:@"app"];
   }
 
   UIDevice *device = [UIDevice currentDevice];
 
-  context[@"device"] = ({
+  [context setObject:({
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    dict[@"manufacturer"] = @"Apple";
-    dict[@"model"] = GetDeviceModel();
+    [dict setObject:@"Apple" forKey:@"manufacturer"];
+    [dict setObject:GetDeviceModel() forKey:@"model"];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
     dict[@"idfv"] = [[device identifierForVendor] UUIDString];
+#endif
     NSString *idfa = GetIdForAdvertiser();
-    if (idfa.length) dict[@"idfa"] = idfa;
+    if (idfa.length) [dict setObject:idfa forKey:@"idfa"];
     dict;
-  });
-
-  context[@"os"] = @{
-    @"name" : device.systemName,
-    @"version" : device.systemVersion
-  };
+  }) forKey:@"device"];
+  
+  [context setObject:@{
+                       @"name" : device.systemName,
+                       @"version" : device.systemVersion
+                       } forKey:@"os"];
 
   CTCarrier *carrier = [[[CTTelephonyNetworkInfo alloc] init] subscriberCellularProvider];
   if (carrier.carrierName.length)
-    context[@"network"] = @{ @"carrier": carrier.carrierName };
+    [context setObject:@{ @"carrier": carrier.carrierName } forKey:@"network"];
 
   CGSize screenSize = [UIScreen mainScreen].bounds.size;
-  context[@"screen"] = @{
-    @"width": @(screenSize.width),
-    @"height": @(screenSize.height)
-  };
+  [context setObject:@{
+                       @"width": @(screenSize.width),
+                       @"height": @(screenSize.height)
+                       } forKey:@"screen"];
 
   return context;
 }
@@ -123,7 +129,7 @@ static NSMutableDictionary *BuildStaticContext() {
 @property (nonatomic, strong) SEGBluetooth *bluetooth;
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, strong) SEGLocation *location;
-@property (nonatomic, strong) dispatch_queue_t serialQueue;
+@property (nonatomic, assign) dispatch_queue_t serialQueue;
 @property (nonatomic, strong) NSMutableDictionary *traits;
 
 @end
@@ -154,29 +160,29 @@ static NSMutableDictionary *BuildStaticContext() {
 
   [context addEntriesFromDictionary:self.context];
 
-  context[@"network"] = ({
+  [context setObject:({
     NSMutableDictionary *network = [[NSMutableDictionary alloc] init];
-
+    
     if (self.bluetooth.hasKnownState)
-      network[@"bluetooth"] = @(self.bluetooth.isEnabled);
-
+      [network setObject:@(self.bluetooth.isEnabled) forKey:@"bluetooth"];
+    
     if (self.reachability.isReachable)
-      network[@"wifi"] = @(self.reachability.isReachableViaWiFi);
-
+      [network setObject:@(self.reachability.isReachableViaWiFi) forKey:@"wifi"];
+    
     network;
-  });
+  }) forKey:@"network"];
 
   if (self.location.hasKnownLocation)
-    context[@"location"] = self.location.locationDictionary;
+    [context setObject:@(self.reachability.isReachableViaWiFi) forKey:@"location"];
 
-  context[@"traits"] = ({
+  [context setObject:({
     NSMutableDictionary *traits = [[NSMutableDictionary alloc] init];
-
+    
     if (self.location.hasKnownLocation)
-      traits[@"address"] = self.location.addressDictionary;
-
+      [traits setObject:self.location.addressDictionary forKey:@"address"];
+    
     traits;
-  });
+  }) forKey:@"traits"];
 
   return context;
 }
@@ -280,7 +286,7 @@ static NSMutableDictionary *BuildStaticContext() {
   for (NSUInteger i = 0; i < deviceToken.length; i++) {
     [token appendString:[NSString stringWithFormat:@"%02lx", (unsigned long)buffer[i]]];
   }
-  [self.context[@"device"] setObject:[token copy] forKey:@"token"];
+  [[self.context objectForKey:@"device"] setObject:token.copy forKey:@"token"];
 }
 
 #pragma mark - Queueing
@@ -289,7 +295,7 @@ static NSMutableDictionary *BuildStaticContext() {
   NSMutableDictionary *dict = [integrations ?: @{} mutableCopy];
   for (SEGAnalyticsIntegration *integration in self.configuration.integrations.allValues) {
     if (![integration isKindOfClass:[SEGSegmentioIntegration class]]) {
-      dict[integration.name] = @NO;
+      [dict setObject:@(NO) forKey:integration.name];
     }
   }
   return dict;
@@ -299,9 +305,9 @@ static NSMutableDictionary *BuildStaticContext() {
   // attach these parts of the payload outside since they are all synchronous
   // and the timestamp will be more accurate.
   NSMutableDictionary *payload = [dictionary mutableCopy];
-  payload[@"type"] = action;
-  payload[@"timestamp"] = [[NSDate date] description];
-  payload[@"messageId"] = GenerateUUIDString();
+  [payload setObject:action forKey:@"type"];
+  [payload setObject:[[NSDate date] description ] forKey:@"type"];
+  [payload setObject:GenerateUUIDString() forKey:@"messageId"];
 
   [self dispatchBackground:^{
     // attach userId and anonymousId inside the dispatch_async in case
@@ -310,8 +316,9 @@ static NSMutableDictionary *BuildStaticContext() {
     [payload setValue:self.anonymousId forKey:@"anonymousId"];
     SEGLog(@"%@ Enqueueing action: %@", self, payload);
 
-    [payload setValue:[self integrationsDictionary:options[@"integrations"]] forKey:@"integrations"];
-    [payload setValue:[self liveContext] forKey:@"context"];
+    [payload setObject:[self integrationsDictionary:[options objectForKey:@"integrations"]] forKey:@"integrations"];
+    [payload setObject:[self liveContext] forKey:@"context"];
+
     [self.queue addObject:payload];
     
     [self flushQueueByLength];

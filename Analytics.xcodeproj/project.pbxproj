@@ -22,7 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		322C9290197633E2005D93AE /* NSObject+SEGSubscripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 322C928F197633E2005D93AE /* NSObject+SEGSubscripting.h */; };
 		3242C9991946A3E100FBE441 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D045551931FACD00A9F0A4 /* XCTest.framework */; };
 		3242C99A1946A3E100FBE441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7200B7617659B2F003F3138 /* Foundation.framework */; };
 		3242C99B1946A3E100FBE441 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D29F91765B382000B937E /* UIKit.framework */; };
@@ -47,26 +46,15 @@
 		3242C9BA1946AFD900FBE441 /* SEGGoogleAnalyticsIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDB64918C315F100A88A7E /* SEGGoogleAnalyticsIntegration.m */; };
 		3242C9BB1946AFDD00FBE441 /* SEGLocalyticsIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDB64C18C315F100A88A7E /* SEGLocalyticsIntegration.m */; };
 		3242C9BC1946AFE300FBE441 /* SEGMixpanelIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDB64F18C315F100A88A7E /* SEGMixpanelIntegration.m */; };
-		3242C9BD1946AFEC00FBE441 /* SEGQuantcastIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A8C60619107DBD00173AE5 /* SEGQuantcastIntegration.m */; };
-		3242C9BE1946AFF200FBE441 /* SEGTaplyticsIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DF3279194666DA004098C1 /* SEGTaplyticsIntegration.m */; };
 		3242C9BF1946AFF900FBE441 /* SEGTapstreamIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EDB65518C315F100A88A7E /* SEGTapstreamIntegration.m */; };
 		32430A761914186C004EFF59 /* SEGLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 32430A741914186C004EFF59 /* SEGLocation.h */; };
 		32430A771914186C004EFF59 /* SEGLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32430A751914186C004EFF59 /* SEGLocation.m */; };
 		32430A7919145DA8004EFF59 /* SEGAnalyticsIntegrations.h in Headers */ = {isa = PBXBuildFile; fileRef = 32430A7819145DA8004EFF59 /* SEGAnalyticsIntegrations.h */; };
-		3278F8BA194F7AC2009AD09C /* SEGApptimizeIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3278F8B8194F7AC2009AD09C /* SEGApptimizeIntegration.h */; };
-		3278F8BB194F7AC2009AD09C /* SEGApptimizeIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3278F8B9194F7AC2009AD09C /* SEGApptimizeIntegration.m */; };
-		3278F8BC194F7AC2009AD09C /* SEGApptimizeIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3278F8B9194F7AC2009AD09C /* SEGApptimizeIntegration.m */; };
-		32A8C60719107DBD00173AE5 /* SEGQuantcastIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A8C60519107DBD00173AE5 /* SEGQuantcastIntegration.h */; };
-		32A8C60819107DBD00173AE5 /* SEGQuantcastIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A8C60619107DBD00173AE5 /* SEGQuantcastIntegration.m */; };
 		32CCD99C1919A4F4007B63BA /* Analytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCD99B1919A4F4007B63BA /* Analytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32DF327A194666DA004098C1 /* SEGTaplyticsIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 32DF3278194666DA004098C1 /* SEGTaplyticsIntegration.h */; };
-		32DF327B194666DA004098C1 /* SEGTaplyticsIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DF3279194666DA004098C1 /* SEGTaplyticsIntegration.m */; };
 		32E113231908AC85006D9788 /* libPods-Analytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E113221908AC85006D9788 /* libPods-Analytics.a */; };
 		32E2811E1908420D00FB48D7 /* SEGBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 32E2811C1908420D00FB48D7 /* SEGBluetooth.h */; };
 		32E2811F1908420D00FB48D7 /* SEGBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E2811D1908420D00FB48D7 /* SEGBluetooth.m */; };
 		6182B863DB2D44D1B463AE3B /* libPods-iOS Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AE4A015CBF4E95B18D10A7 /* libPods-iOS Tests.a */; };
-		D31C8F7E18A2D83700DA22A6 /* MPNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = D31C8F7D18A2D83700DA22A6 /* MPNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D331BCED185BFAA1007CB22F /* MPSurvey.h in Headers */ = {isa = PBXBuildFile; fileRef = D331BCEC185BFAA1007CB22F /* MPSurvey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D331BCF2185BFF49007CB22F /* CRFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D331BCF0185BFF49007CB22F /* CRFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D331BCF3185BFF4A007CB22F /* CrittercismDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D331BCF1185BFF49007CB22F /* CrittercismDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D331BCFB185C2DC4007CB22F /* GAILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D331BCF8185C2DC4007CB22F /* GAILogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -148,7 +136,6 @@
 		23CD79ED9C3E478C83CB7A34 /* libPods-AnalyticsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnalyticsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24AE4A015CBF4E95B18D10A7 /* libPods-iOS Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		288314B9A18241B284C25C5B /* Pods-Analytics.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.xcconfig"; path = "Pods/Pods-Analytics.xcconfig"; sourceTree = "<group>"; };
-		322C928F197633E2005D93AE /* NSObject+SEGSubscripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SEGSubscripting.h"; path = "Helpers/NSObject+SEGSubscripting.h"; sourceTree = "<group>"; };
 		3242C9981946A3E100FBE441 /* iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3242C99E1946A3E100FBE441 /* iOS Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS Tests-Info.plist"; sourceTree = "<group>"; };
 		3242C9A01946A3E100FBE441 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -157,15 +144,9 @@
 		32430A741914186C004EFF59 /* SEGLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGLocation.h; path = Helpers/SEGLocation.h; sourceTree = "<group>"; };
 		32430A751914186C004EFF59 /* SEGLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEGLocation.m; path = Helpers/SEGLocation.m; sourceTree = "<group>"; };
 		32430A7819145DA8004EFF59 /* SEGAnalyticsIntegrations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAnalyticsIntegrations.h; sourceTree = "<group>"; };
-		3278F8B8194F7AC2009AD09C /* SEGApptimizeIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGApptimizeIntegration.h; path = Apptimize/SEGApptimizeIntegration.h; sourceTree = "<group>"; };
-		3278F8B9194F7AC2009AD09C /* SEGApptimizeIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEGApptimizeIntegration.m; path = Apptimize/SEGApptimizeIntegration.m; sourceTree = "<group>"; };
-		32A8C60519107DBD00173AE5 /* SEGQuantcastIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGQuantcastIntegration.h; sourceTree = "<group>"; };
-		32A8C60619107DBD00173AE5 /* SEGQuantcastIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGQuantcastIntegration.m; sourceTree = "<group>"; };
 		32CC25E119072C6B0090DD06 /* libPods-AnalyticsTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AnalyticsTests.a"; path = "Pods/build/Debug-iphoneos/libPods-AnalyticsTests.a"; sourceTree = "<group>"; };
 		32CCD99B1919A4F4007B63BA /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		32D045551931FACD00A9F0A4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		32DF3278194666DA004098C1 /* SEGTaplyticsIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGTaplyticsIntegration.h; sourceTree = "<group>"; };
-		32DF3279194666DA004098C1 /* SEGTaplyticsIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGTaplyticsIntegration.m; sourceTree = "<group>"; };
 		32E113221908AC85006D9788 /* libPods-Analytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Analytics.a"; path = "Pods/build/Debug-iphoneos/libPods-Analytics.a"; sourceTree = "<group>"; };
 		32E113251908AD1C006D9788 /* libPods-AnalyticsTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AnalyticsTests.a"; path = "Pods/build/Debug-iphoneos/libPods-AnalyticsTests.a"; sourceTree = "<group>"; };
 		32E2811C1908420D00FB48D7 /* SEGBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGBluetooth.h; path = Helpers/SEGBluetooth.h; sourceTree = "<group>"; };
@@ -180,8 +161,6 @@
 		8D0FCA5DB8CF4351BA2EC04C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		A1156BA5BDDB45C69CC4E6E1 /* Pods-iOS Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Tests.xcconfig"; path = "Pods/Pods-iOS Tests.xcconfig"; sourceTree = "<group>"; };
 		D309DBF218A2BD2900BA9F31 /* libFlurry_4.3.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_4.3.1.a; path = Pods/FlurrySDK/Flurry/libFlurry_4.3.1.a; sourceTree = "<group>"; };
-		D31C8F7D18A2D83700DA22A6 /* MPNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MPNotification.h; path = Pods/Mixpanel/Mixpanel/MPNotification.h; sourceTree = "<group>"; };
-		D331BCEC185BFAA1007CB22F /* MPSurvey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MPSurvey.h; path = Pods/Mixpanel/Mixpanel/MPSurvey.h; sourceTree = "<group>"; };
 		D331BCF0185BFF49007CB22F /* CRFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CRFilter.h; path = Pods/CrittercismSDK/CrittercismSDK/CRFilter.h; sourceTree = "<group>"; };
 		D331BCF1185BFF49007CB22F /* CrittercismDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CrittercismDelegate.h; path = Pods/CrittercismSDK/CrittercismSDK/CrittercismDelegate.h; sourceTree = "<group>"; };
 		D331BCF8185C2DC4007CB22F /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = "Pods/GoogleAnalytics-iOS-SDK/GoogleAnalytics/Library/GAILogger.h"; sourceTree = "<group>"; };
@@ -326,37 +305,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3278F8B7194F7A4D009AD09C /* Apptimize */ = {
-			isa = PBXGroup;
-			children = (
-				3278F8B8194F7AC2009AD09C /* SEGApptimizeIntegration.h */,
-				3278F8B9194F7AC2009AD09C /* SEGApptimizeIntegration.m */,
-			);
-			name = Apptimize;
-			sourceTree = "<group>";
-		};
-		32A8C60419107DBD00173AE5 /* Quantcast */ = {
-			isa = PBXGroup;
-			children = (
-				32A8C60519107DBD00173AE5 /* SEGQuantcastIntegration.h */,
-				32A8C60619107DBD00173AE5 /* SEGQuantcastIntegration.m */,
-			);
-			path = Quantcast;
-			sourceTree = "<group>";
-		};
-		32DF3277194666DA004098C1 /* Taplytics */ = {
-			isa = PBXGroup;
-			children = (
-				32DF3278194666DA004098C1 /* SEGTaplyticsIntegration.h */,
-				32DF3279194666DA004098C1 /* SEGTaplyticsIntegration.m */,
-			);
-			path = Taplytics;
-			sourceTree = "<group>";
-		};
 		32E281211908421100FB48D7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				322C928F197633E2005D93AE /* NSObject+SEGSubscripting.h */,
 				32430A741914186C004EFF59 /* SEGLocation.h */,
 				32430A751914186C004EFF59 /* SEGLocation.m */,
 				32E2811C1908420D00FB48D7 /* SEGBluetooth.h */,
@@ -369,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				D3D1243E18C31FDA00EE8B82 /* SEGSegmentioIntegration.h */,
-				D31C8F7D18A2D83700DA22A6 /* MPNotification.h */,
 				D331BD1D1860F5F0007CB22F /* TSApi.h */,
 				D331BD1E1860F5F0007CB22F /* TSAppEventSource.h */,
 				D331BD1F1860F5F0007CB22F /* TSConfig.h */,
@@ -404,7 +354,6 @@
 				D331BCF0185BFF49007CB22F /* CRFilter.h */,
 				D331BCF1185BFF49007CB22F /* CrittercismDelegate.h */,
 				D371F333185943170053337D /* Mixpanel.h */,
-				D331BCEC185BFAA1007CB22F /* MPSurvey.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -416,7 +365,6 @@
 				EA65F96417C2ABA600389A1A /* SEGAnalyticsIntegration.h */,
 				EA65F96517C2ABA600389A1A /* SEGAnalyticsIntegration.m */,
 				D3EDB63818C315F100A88A7E /* Amplitude */,
-				3278F8B7194F7A4D009AD09C /* Apptimize */,
 				D3EDB63B18C315F100A88A7E /* Bugsnag */,
 				D3EDB63E18C315F100A88A7E /* Countly */,
 				D3EDB64118C315F100A88A7E /* Crittercism */,
@@ -424,9 +372,7 @@
 				D3EDB64718C315F100A88A7E /* GoogleAnalytics */,
 				D3EDB64A18C315F100A88A7E /* Localytics */,
 				D3EDB64D18C315F100A88A7E /* Mixpanel */,
-				32A8C60419107DBD00173AE5 /* Quantcast */,
 				D3EDB65018C315F100A88A7E /* Segmentio */,
-				32DF3277194666DA004098C1 /* Taplytics */,
 				D3EDB65318C315F100A88A7E /* Tapstream */,
 			);
 			path = Integrations;
@@ -649,16 +595,12 @@
 				D331BCF3185BFF4A007CB22F /* CrittercismDelegate.h in Headers */,
 				D3EDB65818C315F100A88A7E /* SEGBugsnagIntegration.h in Headers */,
 				D371F330185942C90053337D /* Flurry.h in Headers */,
-				3278F8BA194F7AC2009AD09C /* SEGApptimizeIntegration.h in Headers */,
 				D371F332185942DE0053337D /* GAI.h in Headers */,
 				D3EDB65E18C315F100A88A7E /* SEGFlurryIntegration.h in Headers */,
-				32DF327A194666DA004098C1 /* SEGTaplyticsIntegration.h in Headers */,
 				D331BCFB185C2DC4007CB22F /* GAILogger.h in Headers */,
 				D331BCFC185C2DC4007CB22F /* GAITrackedViewController.h in Headers */,
 				D331BCFD185C2DC4007CB22F /* GAITracker.h in Headers */,
 				D371F334185943170053337D /* Mixpanel.h in Headers */,
-				D331BCED185BFAA1007CB22F /* MPSurvey.h in Headers */,
-				D31C8F7E18A2D83700DA22A6 /* MPNotification.h in Headers */,
 				D331BD06185FDDEA007CB22F /* BugsnagConfiguration.h in Headers */,
 				D3EDB66418C315F100A88A7E /* SEGMixpanelIntegration.h in Headers */,
 				D331BD07185FDDEA007CB22F /* BugsnagDictionary.h in Headers */,
@@ -695,10 +637,8 @@
 				D331BD0B185FDDEA007CB22F /* BugsnagNotifier.h in Headers */,
 				EA65F96617C2ABA600389A1A /* SEGAnalyticsIntegration.h in Headers */,
 				EA65F96617C2ABA600389A1A /* SEGAnalyticsIntegration.h in Headers */,
-				32A8C60719107DBD00173AE5 /* SEGQuantcastIntegration.h in Headers */,
 				EACB4DEA17C0BB3100624129 /* SEGAnalyticsUtils.h in Headers */,
 				EAA604C917C28C7C00911919 /* SEGAnalyticsRequest.h in Headers */,
-				322C9290197633E2005D93AE /* NSObject+SEGSubscripting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,7 +804,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nPRODUCT_PATH=\"${SYMROOT}/Release/Analytics.framework\"\n\n## Prepare the framework Folder Structure\nmkdir -p \"${PRODUCT_PATH}/Versions/A/Headers\"\nmkdir -p \"${PRODUCT_PATH}/Versions/A/Resources\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${PRODUCT_PATH}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${PRODUCT_PATH}/Headers\"\n/bin/ln -sfh Versions/Current/Analytics \"${PRODUCT_PATH}/Analytics\"\n/bin/ln -sfh Versions/Current/Resources \"${PRODUCT_PATH}/Resources\"\n\n## Compile for both iPhone (armv7, armv7s, arm64) and iPhone Simulator (i386)\nxcodebuild -workspace Analytics.xcworkspace -scheme Analytics -configuration Release -sdk iphonesimulator\nxcodebuild -workspace Analytics.xcworkspace -scheme Analytics -configuration Release -sdk iphoneos\n\n## Combine the two separate libAnalytics.a into a single fat binary containing all 3 architectures\nlipo -output \"${SYMROOT}/Release/libAnalytics.a\" -create \\\n\"${SYMROOT}/Release-iphoneos/libAnalytics.a\" \\\n\"${SYMROOT}/Release-iphonesimulator/libAnalytics.a\"\n\n## Strip out Pods-dummy objects to prevent duplicate symbol when used by CocoaPods\n\nfor ARCH in i386 armv7 armv7s arm64 x86_64\ndo\nlipo \"${SYMROOT}/Release/libAnalytics.a\" -thin $ARCH -output \"${SYMROOT}/Release/libAnalytics-${ARCH}-clean.a\"\nDUMMY_OBJECTS=`ar -t ${SYMROOT}/Release/libAnalytics-${ARCH}-clean.a | grep ^Pods.*-dummy.o$ | tr '\\n' ' '`\nif [ \"$DUMMY_OBJECTS\" != \"\" ]\nthen\nar -sd \"${SYMROOT}/Release/libAnalytics-${ARCH}-clean.a\" $DUMMY_OBJECTS\nfi\ndone\n\n## Create a fat lib from the now cleaned up thin libs and place inside framework\nlipo -output \"${PRODUCT_PATH}/Versions/A/Analytics\" -create \\\n\"${SYMROOT}/Release/libAnalytics-i386-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-armv7-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-armv7s-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-arm64-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-x86_64-clean.a\"\n\n## produce statically linked library with analytics, google analytics, flurry and crittercism\n\nlibtool -static -o \"${PRODUCT_PATH}/Versions/A/Analytics\" \\\n\"${PRODUCT_PATH}/Versions/A/Analytics\" \\\n${SRCROOT}/Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a \\\n${SRCROOT}/Pods/CrittercismSDK/CrittercismSDK/libCrittercism_v4_3_3.a \\\n${SRCROOT}/Pods/FlurrySDK/Flurry/libFlurry_4.4.0.a \\\n${SRCROOT}/Pods/Taplytics/Taplytics.framework/Taplytics \\\n${SRCROOT}/Pods/Apptimize/apptimize-ios-2.3.1/Apptimize.framework/Apptimize\n\n## Copy headers into the framework\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${SYMROOT}/Release-iphoneos/AnalyticsHeaders/\" \"${PRODUCT_PATH}/Versions/A/Headers/\"\n\n# also copy original resources for include by users\nall_resources=( \"${SRCROOT}/Pods/Mixpanel/Mixpanel/*.png\" \"${SRCROOT}/Pods/Mixpanel/Mixpanel/*.storyboard\" )\n\nfor resource in $all_resources; do /bin/cp -a \"${resource}\" \"${PRODUCT_PATH}/Versions/A/Resources/\" || true; done\n\n# Zip up the framework and license for distribution, and open products folder\ncd \"${SYMROOT}/Release\"\ncp \"${PROJECT_DIR}/License.md\" .\nzip --symlinks -r Analytics-${ANALYTICS_VERSION}.zip Analytics.framework License.md\ncp -f Analytics-${ANALYTICS_VERSION}.zip Analytics-latest-stable.zip\nopen .\n";
+			shellScript = "set -e\n\nPRODUCT_PATH=\"${SYMROOT}/Release/Analytics.framework\"\n\n## Prepare the framework Folder Structure\nmkdir -p \"${PRODUCT_PATH}/Versions/A/Headers\"\nmkdir -p \"${PRODUCT_PATH}/Versions/A/Resources\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${PRODUCT_PATH}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${PRODUCT_PATH}/Headers\"\n/bin/ln -sfh Versions/Current/Analytics \"${PRODUCT_PATH}/Analytics\"\n/bin/ln -sfh Versions/Current/Resources \"${PRODUCT_PATH}/Resources\"\n\n## Compile for both iPhone (armv7, armv7s, arm64) and iPhone Simulator (i386)\nxcodebuild -workspace Analytics.xcworkspace -scheme Analytics -configuration Release -sdk iphonesimulator\nxcodebuild -workspace Analytics.xcworkspace -scheme Analytics -configuration Release -sdk iphoneos\n\n## Combine the two separate libAnalytics.a into a single fat binary containing all 3 architectures\nlipo -output \"${SYMROOT}/Release/libAnalytics.a\" -create \\\n\"${SYMROOT}/Release-iphoneos/libAnalytics.a\" \\\n\"${SYMROOT}/Release-iphonesimulator/libAnalytics.a\"\n\n## Strip out Pods-dummy objects to prevent duplicate symbol when used by CocoaPods\n\nfor ARCH in i386 armv7 armv7s arm64 x86_64\ndo\nlipo \"${SYMROOT}/Release/libAnalytics.a\" -thin $ARCH -output \"${SYMROOT}/Release/libAnalytics-${ARCH}-clean.a\"\nDUMMY_OBJECTS=`ar -t ${SYMROOT}/Release/libAnalytics-${ARCH}-clean.a | grep ^Pods.*-dummy.o$ | tr '\\n' ' '`\nif [ \"$DUMMY_OBJECTS\" != \"\" ]\nthen\nar -sd \"${SYMROOT}/Release/libAnalytics-${ARCH}-clean.a\" $DUMMY_OBJECTS\nfi\ndone\n\n## Create a fat lib from the now cleaned up thin libs and place inside framework\nlipo -output \"${PRODUCT_PATH}/Versions/A/Analytics\" -create \\\n\"${SYMROOT}/Release/libAnalytics-i386-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-armv7-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-armv7s-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-arm64-clean.a\" \\\n\"${SYMROOT}/Release/libAnalytics-x86_64-clean.a\"\n\n## produce statically linked library with analytics, google analytics, flurry and crittercism\n\nlibtool -static -o \"${PRODUCT_PATH}/Versions/A/Analytics\" \\\n\"${PRODUCT_PATH}/Versions/A/Analytics\" \\\n${SRCROOT}/Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a \\\n${SRCROOT}/Pods/CrittercismSDK/CrittercismSDK/libCrittercism_v4_3_3.a \\\n${SRCROOT}/Pods/FlurrySDK/Flurry/libFlurry_4.4.0.a \n\n## Copy headers into the framework\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${SYMROOT}/Release-iphoneos/AnalyticsHeaders/\" \"${PRODUCT_PATH}/Versions/A/Headers/\"\n\n# also copy original resources for include by users\nall_resources=( \"${SRCROOT}/Pods/Mixpanel/Mixpanel/*.png\" \"${SRCROOT}/Pods/Mixpanel/Mixpanel/*.storyboard\" )\n\nfor resource in $all_resources; do /bin/cp -a \"${resource}\" \"${PRODUCT_PATH}/Versions/A/Resources/\" || true; done\n\n# Zip up the framework and license for distribution, and open products folder\ncd \"${SYMROOT}/Release\"\ncp \"${PROJECT_DIR}/License.md\" .\nzip --symlinks -r Analytics-${ANALYTICS_VERSION}.zip Analytics.framework License.md\ncp -f Analytics-${ANALYTICS_VERSION}.zip Analytics-latest-stable.zip\nopen .\n";
 		};
 		EA8758AB17D7B77200833FB1 /* Sync Version Number References with ANALYTICS_VERSION */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -903,7 +843,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3242C9B51946AFC500FBE441 /* SEGAmplitudeIntegration.m in Sources */,
-				3278F8BC194F7AC2009AD09C /* SEGApptimizeIntegration.m in Sources */,
 				3242C9B01946ADA000FBE441 /* SEGLocation.m in Sources */,
 				3242C9AB1946AB4700FBE441 /* AnalyticsUtilsTests.m in Sources */,
 				3242C9AC1946AB4700FBE441 /* SegmentioTests.m in Sources */,
@@ -915,10 +854,8 @@
 				3242C9B11946ADA200FBE441 /* SEGBluetooth.m in Sources */,
 				3242C9BA1946AFD900FBE441 /* SEGGoogleAnalyticsIntegration.m in Sources */,
 				3242C9B91946AFD400FBE441 /* SEGFlurryIntegration.m in Sources */,
-				3242C9BD1946AFEC00FBE441 /* SEGQuantcastIntegration.m in Sources */,
 				3242C9BC1946AFE300FBE441 /* SEGMixpanelIntegration.m in Sources */,
 				3242C9AD1946AD9600FBE441 /* SEGAnalytics.m in Sources */,
-				3242C9BE1946AFF200FBE441 /* SEGTaplyticsIntegration.m in Sources */,
 				3242C9AF1946AD9B00FBE441 /* SEGAnalyticsUtils.m in Sources */,
 				3242C9AE1946AD9900FBE441 /* SEGAnalyticsRequest.m in Sources */,
 				3242C9B81946AFD100FBE441 /* SEGCrittercismIntegration.m in Sources */,
@@ -939,8 +876,6 @@
 				32430A771914186C004EFF59 /* SEGLocation.m in Sources */,
 				D3EDB65918C315F100A88A7E /* SEGBugsnagIntegration.m in Sources */,
 				EACB4DEB17C0BB3100624129 /* SEGAnalyticsUtils.m in Sources */,
-				32A8C60819107DBD00173AE5 /* SEGQuantcastIntegration.m in Sources */,
-				32DF327B194666DA004098C1 /* SEGTaplyticsIntegration.m in Sources */,
 				D3EDB65F18C315F100A88A7E /* SEGFlurryIntegration.m in Sources */,
 				D3EDB66518C315F100A88A7E /* SEGMixpanelIntegration.m in Sources */,
 				D3EDB66718C315F100A88A7E /* SEGSegmentioIntegration.m in Sources */,
@@ -950,7 +885,6 @@
 				EA65F96717C2ABA600389A1A /* SEGAnalyticsIntegration.m in Sources */,
 				D3EDB66318C315F100A88A7E /* SEGLocalyticsIntegration.m in Sources */,
 				D3EDB65B18C315F100A88A7E /* SEGCountlyIntegration.m in Sources */,
-				3278F8BB194F7AC2009AD09C /* SEGApptimizeIntegration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,7 +1013,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 			};
 			name = Debug;
 		};
@@ -1103,7 +1037,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1117,6 +1051,7 @@
 				DSTROOT = /tmp/Analytics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Analytics/Analytics-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PODS_ROOT}/CrittercismSDK/CrittercismSDK",
@@ -1148,6 +1083,7 @@
 				DSTROOT = /tmp/Analytics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Analytics/Analytics-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PODS_ROOT}/CrittercismSDK/CrittercismSDK",

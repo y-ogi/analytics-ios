@@ -52,7 +52,7 @@ static SEGAnalytics *__sharedInstance = nil;
 
 @property (nonatomic, strong) NSDictionary *cachedSettings;
 @property (nonatomic, strong) SEGAnalyticsConfiguration *configuration;
-@property (nonatomic, strong) dispatch_queue_t serialQueue;
+@property (nonatomic, assign) dispatch_queue_t serialQueue;
 @property (nonatomic, strong) NSMutableArray *messageQueue;
 @property (nonatomic, strong) SEGAnalyticsRequest *settingsRequest;
 @property (nonatomic, assign) BOOL enabled;
@@ -97,7 +97,7 @@ static SEGAnalytics *__sharedInstance = nil;
       NSStringFromSelector(@selector(applicationDidBecomeActive))
     };
   });
-  SEL selector = NSSelectorFromString(selectorMapping[note.name]);
+  SEL selector = NSSelectorFromString([selectorMapping objectForKey:note.name]);
   if (selector)
     [self callIntegrationsWithSelector:selector arguments:nil options:nil];
 }
@@ -209,7 +209,7 @@ static SEGAnalytics *__sharedInstance = nil;
 
 - (void)updateIntegrationsWithSettings:(NSDictionary *)settings {
   for (id<SEGAnalyticsIntegration> integration in self.configuration.integrations.allValues)
-    [integration updateSettings:settings[integration.name]];
+    [integration updateSettings:[settings objectForKey:integration.name]];
 
   dispatch_specific_async(_serialQueue, ^{
     [self flushMessageQueue];
@@ -256,12 +256,12 @@ static SEGAnalytics *__sharedInstance = nil;
 #pragma mark - Private
 
 - (BOOL)isIntegration:(id<SEGAnalyticsIntegration>)integration enabledInOptions:(NSDictionary *)options {
-  if (options[integration.name]) {
-    return [options[integration.name] boolValue];
-  } else if (options[@"All"]) {
-    return [options[@"All"] boolValue];
-  } else if (options[@"all"]) {
-    return [options[@"all"] boolValue];
+  if ([options objectForKey:integration.name]) {
+    return [[options objectForKey:integration.name] boolValue];
+  } else if ([options objectForKey:@"All"]) {
+    return [[options objectForKey:@"All"] boolValue];
+  } else if ([options objectForKey:@"all"]) {
+    return [[options objectForKey:@"all"] boolValue];
   }
   return YES;
 }
@@ -288,7 +288,7 @@ static SEGAnalytics *__sharedInstance = nil;
     return;
   }
 
-  if(![self isIntegration:integration enabledInOptions:options[@"integrations"]]) {
+  if(![self isIntegration:integration enabledInOptions:[options objectForKey:@"integrations"]]) {
     SEGLog(@"Not sending call to %@ because it is disabled in options.", integration.name);
     return;
   }
@@ -301,8 +301,8 @@ static SEGAnalytics *__sharedInstance = nil;
 - (NSInvocation *)invocationForSelector:(SEL)selector arguments:(NSArray *)arguments {
   NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[SEGAnalyticsIntegration instanceMethodSignatureForSelector:selector]];
   invocation.selector = selector;
-  for (int i=0; i < arguments.count; i++) {
-    id argument = (arguments[i] == [NSNull null]) ? nil : arguments[i];
+  for (int i = 0; i < arguments.count; i++) {
+    id argument = ([arguments objectAtIndex:i] == [NSNull null]) ? nil : [arguments objectAtIndex:i];
     [invocation setArgument:&argument atIndex:i+2];
   }
   return invocation;
@@ -318,7 +318,7 @@ static SEGAnalytics *__sharedInstance = nil;
   if (_messageQueue.count) {
 
     for (NSArray *arr in _messageQueue)
-      [self forwardSelector:NSSelectorFromString(arr[0]) arguments:arr[1] options:arr[2]];
+      [self forwardSelector:NSSelectorFromString([arr objectAtIndex:0]) arguments:[arr objectAtIndex:1] options:[arr objectAtIndex:2]];
     [_messageQueue removeAllObjects];
   }
 }
@@ -356,7 +356,7 @@ static SEGAnalytics *__sharedInstance = nil;
     self.messageQueue = [[NSMutableArray alloc] init];
 
     [[[self class] registeredIntegrations] enumerateKeysAndObjectsUsingBlock:^(NSString *identifier, Class integrationClass, BOOL *stop) {
-      self.configuration.integrations[identifier] = [[integrationClass alloc] initWithConfiguration:self.configuration];
+      [self.configuration.integrations setObject:[[integrationClass alloc] initWithConfiguration:self.configuration] forKey:identifier];
     }];
 
     // Update settings on each integration immediately
@@ -395,7 +395,7 @@ static SEGAnalytics *__sharedInstance = nil;
     __registeredIntegrations = [[NSMutableDictionary alloc] init];
   });
 
-  __registeredIntegrations[identifer] = integrationClass;
+  [__registeredIntegrations setObject:integrationClass forKey:identifer];
 }
 
 @end

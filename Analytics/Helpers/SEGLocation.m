@@ -83,9 +83,10 @@
   if (!locations.count) return;
   
   __weak typeof(self) weakSelf = self;
-  [self.geocoder reverseGeocodeLocation:locations.firstObject completionHandler:^(NSArray *placemarks, NSError *error) {
+  [self.geocoder reverseGeocodeLocation:[locations objectAtIndex:0] completionHandler:^(NSArray *placemarks, NSError *error) {
     __strong typeof(weakSelf) strongSelf = weakSelf;
-    strongSelf.currentPlacemark = placemarks.firstObject;
+    if (!placemarks.count) return;
+    strongSelf.currentPlacemark = [placemarks objectAtIndex:0];
   }];
 }
 

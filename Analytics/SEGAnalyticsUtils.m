@@ -2,7 +2,6 @@
 // Copyright (c) 2014 Segment.io. All rights reserved.
 
 #import "SEGAnalyticsUtils.h"
-#import <AdSupport/ASIdentifierManager.h>
 
 static BOOL kAnalyticsLoggerShowLogs = NO;
 
@@ -15,16 +14,16 @@ NSURL *SEGAnalyticsURLForFilename(NSString *filename) {
 // Async Utils
 dispatch_queue_t dispatch_queue_create_specific(const char *label, dispatch_queue_attr_t attr) {
     dispatch_queue_t queue = dispatch_queue_create(label, attr);
-    dispatch_queue_set_specific(queue, (__bridge const void *)queue, (__bridge void *)queue, NULL);
+    dispatch_queue_set_specific(queue, (const void *)queue, (void *)queue, NULL);
     return queue;
 }
 
 BOOL dispatch_is_on_specific_queue(dispatch_queue_t queue) {
-    return dispatch_get_specific((__bridge const void *)queue) != NULL;
+    return dispatch_get_specific((const void *)queue) != NULL;
 }
 
 void dispatch_specific(dispatch_queue_t queue, dispatch_block_t block, BOOL waitForCompletion) {
-    if (dispatch_get_specific((__bridge const void *)queue)) {
+    if (dispatch_get_specific((const void *)queue)) {
         block();
     } else if (waitForCompletion) {
         dispatch_sync(queue, block);
@@ -79,7 +78,7 @@ static id SEGCoerceJSONObject(id obj) {
         for (NSString *key in obj) {
             if (![key isKindOfClass:[NSString class]])
                 SEGLog(@"warning: dictionary keys should be strings. got: %@. coercing to: %@", [key class], [key description]);
-            dict[key.description] = SEGCoerceJSONObject(obj[key]);
+          [dict setObject:SEGCoerceJSONObject([obj objectForKey:key]) forKey:key.description];
         }
         return dict;
     }
@@ -100,7 +99,7 @@ static void AssertDictionaryTypes(id dict) {
     assert([dict isKindOfClass:[NSDictionary class]]);
     for (id key in dict) {
         assert([key isKindOfClass: [NSString class]]);
-        id value = dict[key];
+        id value = [dict objectForKey:key];
 
         assert([value isKindOfClass:[NSString class]] ||
                [value isKindOfClass:[NSNumber class]] ||
@@ -119,15 +118,6 @@ NSDictionary *SEGCoerceDictionary(NSDictionary *dict) {
     AssertDictionaryTypes(dict);
     // coerce urls, and dates to the proper format
     return SEGCoerceJSONObject(dict);
-}
-
-NSString *SEGIDFA() {
-  id identifierManager = NSClassFromString(@"ASIdentifierManager");
-  if (identifierManager && [[identifierManager sharedManager] isAdvertisingTrackingEnabled]) {
-    return [[[identifierManager sharedManager] advertisingIdentifier] UUIDString];
-  } else {
-    return nil;
-  }
 }
 
 NSString *SEGEventNameForScreenTitle(NSString *title) {
