@@ -52,7 +52,7 @@ static SEGAnalytics *__sharedInstance = nil;
 
 @property (nonatomic, strong) NSDictionary *cachedSettings;
 @property (nonatomic, strong) SEGAnalyticsConfiguration *configuration;
-@property (nonatomic, strong) dispatch_queue_t serialQueue;
+@property (nonatomic, assign) dispatch_queue_t serialQueue;
 @property (nonatomic, strong) NSMutableArray *messageQueue;
 @property (nonatomic, strong) SEGAnalyticsRequest *settingsRequest;
 @property (nonatomic, assign) BOOL enabled;

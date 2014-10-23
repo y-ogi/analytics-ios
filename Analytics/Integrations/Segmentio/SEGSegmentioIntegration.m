@@ -146,7 +146,7 @@ static NSDictionary *BuildStaticContext() {
 @property (nonatomic, strong) SEGReachability *reachability;
 @property (nonatomic, strong) SEGLocation *location;
 @property (nonatomic, strong) NSTimer *flushTimer;
-@property (nonatomic, strong) dispatch_queue_t serialQueue;
+@property (nonatomic, assign) dispatch_queue_t serialQueue;
 @property (nonatomic, strong) NSMutableDictionary *traits;
 
 @end

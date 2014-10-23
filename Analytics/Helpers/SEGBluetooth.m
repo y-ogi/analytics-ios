@@ -14,7 +14,7 @@ const NSString *SEGCentralManagerClass = @"CBCentralManager";
 @interface SEGBluetooth () <CBCentralManagerDelegate>
 
 @property (nonatomic, strong) CBCentralManager *manager;
-@property (nonatomic, strong) dispatch_queue_t queue;
+@property (nonatomic, assign) dispatch_queue_t queue;
 
 @end
 
@@ -28,11 +28,7 @@ const NSString *SEGCentralManagerClass = @"CBCentralManager";
 
   _queue = dispatch_queue_create("io.segment.bluetooth.queue", NULL);
 
-  if (&CBCentralManagerOptionShowPowerAlertKey != NULL) {
-    _manager = [[centralManager alloc] initWithDelegate:self queue:_queue options:@{ CBCentralManagerOptionShowPowerAlertKey: @NO }];
-  } else {
     _manager = [[centralManager alloc] initWithDelegate:self queue:_queue];
-  }
 
   return self;
 }

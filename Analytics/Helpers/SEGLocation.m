@@ -33,7 +33,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLPlacemark *currentPlacemark;
 @property (nonatomic, strong) CLGeocoder *geocoder;
-@property (nonatomic, strong) dispatch_queue_t syncQueue;
+@property (nonatomic, assign) dispatch_queue_t syncQueue;
 
 @end
 
@@ -81,10 +81,10 @@ LOCATION_NUMBER_PROPERTY(speed, location.speed);
   if (!locations.count) return;
   
   __weak typeof(self) weakSelf = self;
-  [self.geocoder reverseGeocodeLocation:locations.firstObject completionHandler:^(NSArray *placemarks, NSError *error) {
+  [self.geocoder reverseGeocodeLocation:locations[0] completionHandler:^(NSArray *placemarks, NSError *error) {
     __strong typeof(weakSelf) strongSelf = weakSelf;
     dispatch_sync(strongSelf.syncQueue, ^{
-      strongSelf.currentPlacemark = placemarks.firstObject;
+      strongSelf.currentPlacemark = placemarks[0];
     });
   }];
 }

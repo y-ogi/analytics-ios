@@ -38,7 +38,7 @@ NSString *const kSEGReachabilityChangedNotification = @"kSEGReachabilityChangedN
 #if NEEDS_DISPATCH_RETAIN_RELEASE
 @property (nonatomic, assign) dispatch_queue_t          reachabilitySerialQueue;
 #else
-@property (nonatomic, strong) dispatch_queue_t          reachabilitySerialQueue;
+@property (nonatomic, assign) dispatch_queue_t          reachabilitySerialQueue;
 #endif
 
 

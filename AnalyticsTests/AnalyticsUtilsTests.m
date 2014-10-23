@@ -8,7 +8,7 @@
 
 @interface SEGUtilsTests : XCTestCase
 
-@property (nonatomic, strong) dispatch_queue_t queue;
+@property (nonatomic, assign) dispatch_queue_t queue;
 
 @end
 

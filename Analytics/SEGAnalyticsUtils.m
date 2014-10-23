@@ -8,7 +8,7 @@ static BOOL kAnalyticsLoggerShowLogs = NO;
 
 NSURL *SEGAnalyticsURLForFilename(NSString *filename) {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-  NSString *supportPath = [paths firstObject];
+  NSString *supportPath = paths[0];
   if (![[NSFileManager defaultManager] fileExistsAtPath:supportPath isDirectory:NULL]) {
     NSError *error = nil;
     if (![[NSFileManager defaultManager] createDirectoryAtPath:supportPath withIntermediateDirectories:YES attributes:nil error:&error]) {
@@ -21,16 +21,16 @@ NSURL *SEGAnalyticsURLForFilename(NSString *filename) {
 // Async Utils
 dispatch_queue_t seg_dispatch_queue_create_specific(const char *label, dispatch_queue_attr_t attr) {
   dispatch_queue_t queue = dispatch_queue_create(label, attr);
-  dispatch_queue_set_specific(queue, (__bridge const void *)queue, (__bridge void *)queue, NULL);
+  dispatch_queue_set_specific(queue, queue, queue, NULL);
   return queue;
 }
 
 BOOL seg_dispatch_is_on_specific_queue(dispatch_queue_t queue) {
-  return dispatch_get_specific((__bridge const void *)queue) != NULL;
+  return dispatch_get_specific(queue) != NULL;
 }
 
 void seg_dispatch_specific(dispatch_queue_t queue, dispatch_block_t block, BOOL waitForCompletion) {
-  if (dispatch_get_specific((__bridge const void *)queue)) {
+  if (dispatch_get_specific(queue)) {
     block();
   } else if (waitForCompletion) {
     dispatch_sync(queue, block);
