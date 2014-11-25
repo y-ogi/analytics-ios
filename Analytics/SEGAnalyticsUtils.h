@@ -27,3 +27,7 @@ NSDictionary *SEGCoerceDictionary(NSDictionary *dict);
 NSString *SEGIDFA(void);
 
 NSString *SEGEventNameForScreenTitle(NSString *title);
+
+// IntegrationUtils
+
+BOOL validateEmail(NSString *candidate);

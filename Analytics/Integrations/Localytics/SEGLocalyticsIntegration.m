@@ -8,12 +8,12 @@
 
 @implementation SEGLocalyticsIntegration
 
-+ (BOOL) validateEmail:(NSString *)candidate {
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-
-    return [emailTest evaluateWithObject:candidate];
-}
+// + (BOOL) validateEmail:(NSString *)candidate {
+//     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+//     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+//
+//     return [emailTest evaluateWithObject:candidate];
+// }
 
 + (void)load {
     [SEGAnalytics registerIntegration:self withIdentifier:@"Localytics"];
@@ -64,7 +64,8 @@
 
     // Email
     NSString *email = [traits objectForKey:@"email"];
-    if (!email && [SEGLocalyticsIntegration validateEmail:userId]) {
+    //if (!email && [SEGLocalyticsIntegration validateEmail:userId]) {
+    if (!email && validateEmail(userId)) {
         email = userId;
     }
     if (email) {

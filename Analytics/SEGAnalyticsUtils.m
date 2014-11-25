@@ -55,7 +55,7 @@ void SEGSetShowDebugLogs(BOOL showDebugLogs) {
 
 void SEGLog(NSString *format, ...) {
   if (!kAnalyticsLoggerShowLogs) return;
-  
+
   va_list args;
   va_start(args, format);
   NSLogv(format, args);
@@ -72,14 +72,14 @@ static id SEGCoerceJSONObject(id obj) {
       [obj isKindOfClass:[NSNull class]]) {
     return obj;
   }
-  
+
   if ([obj isKindOfClass:[NSArray class]]) {
     NSMutableArray *array = [NSMutableArray array];
     for (id i in obj)
       [array addObject:SEGCoerceJSONObject(i)];
     return array;
   }
-  
+
   if ([obj isKindOfClass:[NSDictionary class]]) {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     for (NSString *key in obj) {
@@ -89,14 +89,14 @@ static id SEGCoerceJSONObject(id obj) {
     }
     return dict;
   }
-  
+
   // NSDate description is already a valid ISO8061 string
   if ([obj isKindOfClass:[NSDate class]])
     return [obj description];
-  
+
   if ([obj isKindOfClass:[NSURL class]])
     return [obj absoluteString];
-  
+
   // default to sending the object's description
   SEGLog(@"warning: dictionary values should be valid json types. got: %@. coercing to: %@", [obj class], [obj description]);
   return [obj description];
@@ -107,7 +107,7 @@ static void AssertDictionaryTypes(id dict) {
   for (id key in dict) {
     assert([key isKindOfClass: [NSString class]]);
     id value = dict[key];
-    
+
     assert([value isKindOfClass:[NSString class]] ||
            [value isKindOfClass:[NSNumber class]] ||
            [value isKindOfClass:[NSNull class]] ||
@@ -142,4 +142,13 @@ NSString *SEGIDFA() {
 
 NSString *SEGEventNameForScreenTitle(NSString *title) {
   return [[NSString alloc] initWithFormat:@"Viewed %@ Screen", title];
+}
+
+// IntegrationUtils
+
+BOOL validateEmail(NSString *candidate) {
+  NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+  NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+
+  return [emailTest evaluateWithObject:candidate];
 }
