@@ -34,6 +34,10 @@
 #import "SEGGoogleAnalyticsIntegration.h"
 #endif
 
+#if defined(USE_ANALYTICS_INTERCOM) || defined(USE_ANALYTICS_ALL)
+#import "SEGIntercomIntegration.h"
+#endif
+
 #if defined(USE_ANALYTICS_LOCALYTICS) || defined(USE_ANALYTICS_ALL)
 #import "SEGLocalyticsIntegration.h"
 #endif

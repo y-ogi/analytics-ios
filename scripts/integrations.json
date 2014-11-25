@@ -50,6 +50,13 @@
       }]
     },
     {
+      "name": "Intercom",
+      "dependencies": [{
+        "name": "Intercom",
+        "version": "2.0.6"
+        }]
+    },
+    {
       "name": "Localytics",
       "dependencies": [{
         "name": "Localytics-AMP",
