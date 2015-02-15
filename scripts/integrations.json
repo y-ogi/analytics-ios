@@ -60,6 +60,13 @@
       }]
     },
     {
+      "name": "Leanplum",
+      "dependencies": [{
+        "name": "Leanplum-iOS-SDK",
+        "version": "1.2.20"
+      }]
+    },
+    {
       "name": "Localytics",
       "dependencies": [{
         "name": "Localytics",
